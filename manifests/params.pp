@@ -4,6 +4,8 @@
 # It sets variables according to platform.
 #
 class brltty::params {
+  $text_table = ''
+
   case $::osfamily {
     'Debian': {
       $package_name = 'brltty'
