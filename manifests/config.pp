@@ -9,6 +9,7 @@ class brltty::config {
     owner => 'root',
     group => 'root',
     mode  => '0644'
+#    notify => Service[$::brltty::service_name]
   }
 
   concat::fragment{ 'settings':
