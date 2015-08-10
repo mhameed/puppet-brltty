@@ -5,17 +5,12 @@
 class brltty::config {
   $config_file = '/etc/brltty.conf'
 
-  concat { $config_file:
+  file { $config_file:
     owner => 'root',
     group => 'root',
-    mode  => '0644'
-#    notify => Service[$::brltty::service_name]
-  }
-
-  concat::fragment{ 'settings':
-    target  => $config_file,
+    mode  => '0644',
+    notify => Service[$::brltty::service_name],
     content => "text-table ${::brltty::text_table}\n",
-    order   => '01'
   }
 
 }
